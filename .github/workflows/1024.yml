@@ -6,14 +6,15 @@ on:
     branches:
       - Multi_User
   schedule:
-    - cron: '34 21 * * *'
+    - cron: '34 23 * * *'
 
 
 jobs:
   build:
     runs-on: ubuntu-latest
     steps:
-    - uses: actions/checkout@v2
+    - uses: actions/checkout@v3
+    
     - name: checkout actions
       run : |
         sudo apt-get update
@@ -34,5 +35,7 @@ jobs:
         TOKER: ${{ secrets.TOKER }}
         CODEUSER: ${{ secrets.CODEUSER }}
         CODEPASS: ${{ secrets.CODEPASS }}
+        USERID: ${{ secrets.USERID }}
+        APIKEY: ${{ secrets.APIKEY }}
       run:
         python3 1024.py
